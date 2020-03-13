@@ -16,6 +16,7 @@ urlpatterns = [
     # /field or function/ => list
     # /field or function/ <int:pk> => specific
     path('', views.movies, name='movies'),
+    path('mvs/', views.mvs, name='mvs'),
     path('<int:pk>/', views.movie_detail, name='movie_detail'),
     path('<int:pk>/like/', views.movie_like, name='movie_like'),
     path('<int:pk>/seen/', views.movie_seen, name='movie_seen'),

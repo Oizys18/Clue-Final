@@ -48,7 +48,7 @@ export default {
       seen_movies: {},
       userinfo: "",
       movies: {},
-      BASE_URL: "https://final-be.herokuapp.com",
+      BASE_URL: "http://127.0.0.1:8000",
       colorLoading: "#7d0c3f"
     };
   },

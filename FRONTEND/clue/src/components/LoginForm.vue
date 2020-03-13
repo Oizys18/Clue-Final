@@ -88,7 +88,7 @@
       </vs-col>
     </vs-row>
   </div>
-</template>``
+</template>
 
 <script>
 import axios from "axios";
@@ -100,7 +100,7 @@ export default {
     return {
       credentials: {},
       errorMsg: {},
-      BASE_URL: "https://final-be.herokuapp.com"
+      BASE_URL: "http://127.0.0.1:8000"
     };
   },
   methods: {

@@ -3,12 +3,19 @@ from .models import Movie, Person, Genre, Keyword, Review
 from .serializers import MovieSerializer, MovieDetailSerializer, PersonSerializer, PersonDetailSerializer, GenreSerializer, GenreDetailSerializer, KeywordSerializer, KeywordDetailSerializer, ReviewSerializer
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
+from django.http import JsonResponse 
 import random
+from django.core.cache import cache
+from django.core import serializers
 
-# Create your views here.
+def mvs(request):
+    movies_all = cache.get_or_set('movies_all',Movie.objects.all())
+    mvs_serialized = serializers.serialize('json', movies_all)
+    return JsonResponse(mvs_serialized,safe=False) 
+
 @api_view(['GET'])
 def movies(request):
-    movies_all = Movie.objects.all()
+    movies_all = cache.get_or_set('movies_all',Movie.objects.all())
     serializer = MovieSerializer(movies_all, many=True)
     return Response(serializer.data)
 

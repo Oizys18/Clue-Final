@@ -40,7 +40,7 @@ export default {
     return {
       sbactive: false,
       userisActive: false,
-      BASE_URL: "https://final-be.herokuapp.com"
+      BASE_URL: "http://127.0.0.1:8000"
     };
   },
   components: {
